@@ -9,6 +9,9 @@ public class LoginTicket {
     private int status;
     private String ticket;
 
+    public LoginTicket(){
+    }
+
     public int getId() {
         return id;
     }

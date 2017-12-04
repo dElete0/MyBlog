@@ -20,14 +20,12 @@ public class PassportInterceptor implements HandlerInterceptor{
     @Autowired
     private LoginTicketDao loginTicketDao;
     @Autowired
-    private JedisService jedisService;
-    @Autowired
     private UserDao userDao;
     @Autowired
     private HostHolder hostHolder;
 
     @Override
-    public boolean proHandle(HttpServletRequest httpServletRequest,
+    public boolean preHandle(HttpServletRequest httpServletRequest,
                              HttpServletResponse httpServletResponse,Object o)
         throws Exception{
         String ticket = null;
@@ -47,6 +45,7 @@ public class PassportInterceptor implements HandlerInterceptor{
             User user = userDao.selectById(loginTicket.getUserId());
             hostHolder.setUsers(user);
         }
+        return true;
     }
 
     @Override

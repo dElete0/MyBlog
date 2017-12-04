@@ -9,7 +9,7 @@ public interface UserDao {
     String insert_fields = " name, password, salt, head_url, role ";
     String select_fields = " id, " + insert_fields;
 
-    @Insert({"insert into",table_name,"(",insert_fields,") values (#{name},#{passwork},#{salt},#{headUrl},#{role})"})
+    @Insert({"insert into",table_name,"(",insert_fields,") values (#{name},#{password},#{salt},#{headUrl},#{role})"})
     public void insertUser(User user);
 
     @Select({"select",select_fields,"from",table_name,"where id=#{id}"})
